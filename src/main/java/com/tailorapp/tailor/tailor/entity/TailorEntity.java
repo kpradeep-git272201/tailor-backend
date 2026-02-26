@@ -28,6 +28,7 @@ public class TailorEntity {
     private Boolean activeFlag;
     private LocalDateTime createdAt;
     private String isActive;
+
     private String isDeleted;
 
     public Long getTailorId() {

@@ -8,7 +8,7 @@ import lombok.Setter;
 
 @Entity
 @Data
-@Table(name = "articles", schema = DatabaseConstants.MASTER)
+@Table(name = "articles", schema = DatabaseConstants.TAILOR)
 public class ArticleEntity {
 
     @Id
