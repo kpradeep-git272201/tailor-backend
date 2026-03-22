@@ -22,9 +22,11 @@ public class ArticleController {
         this.articleService = articleService;
     }
 
+    // http://localhost:8080/tailor/catalog/api/v1/article/test
+
     @GetMapping("/test")
     public String getTest() {
-        return "Catalog controller works-1!";
+        return "Catalog controller works-2!";
     }
 
     @GetMapping
