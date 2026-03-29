@@ -7,6 +7,8 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 
+
+
 public class AddToCartRequest {
 
     @NotNull(message = "userId is required")
@@ -20,6 +22,7 @@ public class AddToCartRequest {
     private Integer quantity = 1;
 
     private BigDecimal price;
+
 
     public Long getUserId() {
         return userId;
@@ -60,4 +63,5 @@ public class AddToCartRequest {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
 }

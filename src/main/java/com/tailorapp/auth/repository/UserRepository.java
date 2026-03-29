@@ -1,10 +1,17 @@
 package com.tailorapp.auth.repository;
 
-import com.tailorapp.auth.entity.User;
+import com.tailorapp.auth.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<User, Long> {
-    Optional<User> findByMobile(String mobile);
+@Repository
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
+
+    Optional<UserEntity> findByEmail(String email);
+
+    boolean existsByEmail(String email);
+
+    Optional<UserEntity> findByEmailAndIsActiveTrue(String email);
 }

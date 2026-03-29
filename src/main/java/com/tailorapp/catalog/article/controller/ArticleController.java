@@ -44,4 +44,5 @@ public class ArticleController {
                 ApiResponse.success("Articles fetched successfully", articles, articles.size())
         );
     }
+    }
 }
