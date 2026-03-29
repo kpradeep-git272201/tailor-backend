@@ -2,11 +2,9 @@ package com.tailorapp.catalog.cart.dto;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
+
 
 import java.math.BigDecimal;
-
-
 
 
 public class AddToCartRequest {
@@ -22,6 +20,7 @@ public class AddToCartRequest {
     private Integer quantity = 1;
 
     private BigDecimal price;
+
 
 
     public Long getUserId() {
@@ -63,5 +62,4 @@ public class AddToCartRequest {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
-
 }
