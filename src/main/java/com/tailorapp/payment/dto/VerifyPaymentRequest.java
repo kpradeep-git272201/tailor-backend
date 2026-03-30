@@ -3,7 +3,6 @@ package com.tailorapp.payment.dto;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
-@Data
 public class VerifyPaymentRequest {
 
     @NotBlank(message = "gatewayOrderId is required")
@@ -14,4 +13,28 @@ public class VerifyPaymentRequest {
 
     @NotBlank(message = "gatewaySignature is required")
     private String gatewaySignature;
+
+    public String getGatewayOrderId() {
+        return gatewayOrderId;
+    }
+
+    public void setGatewayOrderId(String gatewayOrderId) {
+        this.gatewayOrderId = gatewayOrderId;
+    }
+
+    public String getGatewayPaymentId() {
+        return gatewayPaymentId;
+    }
+
+    public void setGatewayPaymentId(String gatewayPaymentId) {
+        this.gatewayPaymentId = gatewayPaymentId;
+    }
+
+    public String getGatewaySignature() {
+        return gatewaySignature;
+    }
+
+    public void setGatewaySignature(String gatewaySignature) {
+        this.gatewaySignature = gatewaySignature;
+    }
 }
