@@ -32,7 +32,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public String sendOtp(String mobile) {
 
-        String otpValue = "123456"; // TODO: random OTP later
+        String otpValue = "1234"; // TODO: random OTP later
 
         OtpVerification otpEntity = new OtpVerification();
         otpEntity.setMobile(mobile);
