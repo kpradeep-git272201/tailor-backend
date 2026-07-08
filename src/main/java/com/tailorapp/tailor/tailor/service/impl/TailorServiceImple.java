@@ -37,7 +37,6 @@ public class TailorServiceImple implements TailorService {
 
     @Override
     public List<TailorArticleRate> getRates(Long tailorId) {
-        return tailorArticleRateRepository
-                .findByTailor_TailorId(tailorId);
+        return tailorArticleRateRepository.findByTailor_TailorId(tailorId);
     }
 }

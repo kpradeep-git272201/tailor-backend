@@ -10,7 +10,6 @@ import java.util.List;
 public interface TailorArticleRateRepository
         extends JpaRepository<TailorArticleRate,Long> {
 
-    List<TailorArticleRate>
-    findByTailor_TailorId(Long tailorId);
+    List<TailorArticleRate> findByTailor_TailorId(Long tailorId);
 
 }
