@@ -45,4 +45,14 @@ public class TailorController {
     public String getTailor(@PathVariable Long tailorId){
         return "Get Tailor by tailorId";
     }
+
+    @GetMapping("/tailor/{tailorId}/rates")
+    public ResponseEntity<?> getRates(
+            @PathVariable Long tailorId) {
+
+        return ResponseEntity.ok(
+                tailorService.getRates(tailorId)
+        );
+
+    }
 }
