@@ -1,5 +1,6 @@
 package com.tailorapp.auth.dto;
 
+import jakarta.persistence.Column;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -13,6 +14,8 @@ public class UserDTO {
     private String role;
     private Boolean isActive;
 
+    @Column(columnDefinition = "jsonb")
+    private String addressJson;
     private LocalDateTime createdAt;
     private LocalDateTime lastLogin;
 
@@ -78,5 +81,13 @@ public class UserDTO {
 
     public void setLastLogin(LocalDateTime lastLogin) {
         this.lastLogin = lastLogin;
+    }
+
+    public void setAddressJson(String addressJson) {
+        this.addressJson = addressJson;
+    }
+
+    public String getAddressJson() {
+        return addressJson;
     }
 }

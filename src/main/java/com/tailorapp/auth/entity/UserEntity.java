@@ -15,7 +15,7 @@ public class UserEntity {
     private Long userId;
 
     // =========================
-    // LOGIN FIELD (OTP आधारित)
+    // LOGIN FIELD (OTP)
     // =========================
     @Column(name = "phone_number", unique = true, nullable = false, length = 15)
     private String phoneNumber;
@@ -52,7 +52,8 @@ public class UserEntity {
 
     @Column(name = "last_login")
     private LocalDateTime lastLogin;
-
+    @Column(name = "address_json", columnDefinition = "jsonb")
+    private String addressJson;
     // =========================
     // AUTO TIMESTAMP
     // =========================
@@ -154,5 +155,29 @@ public class UserEntity {
     }
 
     public void setEmailVerified(boolean b) {
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
+    }
+
+    public void setAddressJson(String addressJson) {
+        this.addressJson = addressJson;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public String getAddressJson() {
+        return addressJson;
     }
 }
