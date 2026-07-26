@@ -2,7 +2,7 @@ package com.tailorapp.common.exception;
 
 import com.tailorapp.common.response.ApiResponse;
 
-import org.apache.velocity.exception.ResourceNotFoundException;
+
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +14,20 @@ import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+
+    @ExceptionHandler(ResourceAlreadyExistsException.class)
+    public ResponseEntity<ApiResponse<Void>> handleAlreadyExists(
+            ResourceAlreadyExistsException ex
+    ) {
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(ApiResponse.error(
+                        ex.getMessage(),
+                        "RESOURCE_ALREADY_EXISTS"
+                ));
+    }
+
 
     /* ================= RESOURCE NOT FOUND ================= */
 

@@ -2,7 +2,7 @@ package com.tailorapp.common.mapper;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tailorapp.tailor.tailor.entity.TailorEntity;
+import com.tailorapp.tailor.tailor.entity.TailorEntityOld;
 import com.tailorapp.tailor.tailor.tailorDto.TailorDTO;
 import com.tailorapp.tailor.tailor.tailorDto.UpdatedTailorDTO;
 import org.mapstruct.BeanMapping;
@@ -20,19 +20,19 @@ public interface TailorMapper {
 
     ObjectMapper objectMapper = new ObjectMapper();
 
-    TailorDTO toDto(TailorEntity entity);
+    TailorDTO toDto(TailorEntityOld entity);
 
-    List<TailorDTO> toDtoList(List<TailorEntity> entities);
+    List<TailorDTO> toDtoList(List<TailorEntityOld> entities);
 
-    TailorEntity toEntity(TailorDTO dto);
+    TailorEntityOld toEntity(TailorDTO dto);
 
-    List<TailorEntity> toEntityList(List<TailorDTO> dtoList);
+    List<TailorEntityOld> toEntityList(List<TailorDTO> dtoList);
 
     /* ================= UPDATE (PATCH) ================= */
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateEntityFromDto(
             UpdatedTailorDTO dto,
-            @MappingTarget TailorEntity entity
+            @MappingTarget TailorEntityOld entity
     );
 
     /* ========= CUSTOM JSON MAPPING ========= */

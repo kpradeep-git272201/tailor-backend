@@ -1,8 +1,8 @@
 package com.tailorapp.common.mapper;
 
-import com.tailorapp.catalog.address.dto.AddAddressRequest;
-import com.tailorapp.catalog.address.dto.AddressDTO;
-import com.tailorapp.catalog.address.entity.AddressEntity;
+import com.tailorapp.address.dto.AddAddressRequest;
+import com.tailorapp.address.dto.AddressDTO;
+import com.tailorapp.address.entity.AddressEntity;
 import org.mapstruct.*;
 import org.springframework.context.annotation.Primary;
 

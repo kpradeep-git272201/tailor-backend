@@ -26,7 +26,7 @@ public class TailorArticleRate {
 
     @ManyToOne
     @JoinColumn(name="tailor_id")
-    private TailorEntity tailor;
+    private TailorEntityOld tailor;
 
     @ManyToOne
     @JoinColumn(name="article_id")

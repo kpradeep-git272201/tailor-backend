@@ -2,6 +2,8 @@ package com.tailorapp.tailor.tailor.controller;
 
 import com.tailorapp.catalog.article.dto.ArticleDTO;
 import com.tailorapp.common.response.ApiResponse;
+import com.tailorapp.tailor.dto.ArticleRatsDTO;
+import com.tailorapp.tailor.rates.ArticleRateService;
 import com.tailorapp.tailor.tailor.service.TailorService;
 import com.tailorapp.tailor.tailor.tailorDto.TailorDTO;
 import org.springframework.http.ResponseEntity;
@@ -19,14 +21,17 @@ import java.util.List;
 public class TailorController {
 
     private final TailorService tailorService;
-    public TailorController(TailorService  tailorService){
+    private final ArticleRateService articleRateService;
+    public TailorController(TailorService  tailorService,ArticleRateService articleRateService){
         this.tailorService=tailorService;
+        this.articleRateService=articleRateService;
     }
 
     @GetMapping("/test")
     public String test(){
         return "Last updated on 24-JAN-2026";
     }
+
     @GetMapping("/tailors")
     public ResponseEntity<ApiResponse<List<TailorDTO>>> getTailors(){
         List<TailorDTO> tailors = tailorService.getTailors();
@@ -54,5 +59,19 @@ public class TailorController {
                 tailorService.getRates(tailorId)
         );
 
+    }
+
+    @GetMapping("/article-rates/{tailorId}")
+    public ResponseEntity<ApiResponse<List<ArticleRatsDTO>>> getAllArticleRatesByTailor(@PathVariable Long tailorId) {
+
+        List<ArticleRatsDTO> response = articleRateService.findAllArticleRatesByTailor(tailorId);
+
+        return ResponseEntity.ok(
+                ApiResponse.success(
+                        "Article rates fetched successfully.",
+                        response,
+                        response.size()
+                )
+        );
     }
 }
