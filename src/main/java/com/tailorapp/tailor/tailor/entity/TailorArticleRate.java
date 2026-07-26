@@ -16,8 +16,6 @@ import lombok.Setter;
                 )
         }
 )
-@Getter
-@Setter
 public class TailorArticleRate {
 
     @Id
@@ -34,4 +32,36 @@ public class TailorArticleRate {
 
     @Column(name="stitching_price")
     private Double stitchingPrice;
+
+    public Long getId() {
+        return id;
+    }
+
+    public TailorEntity getTailor() {
+        return tailor;
+    }
+
+    public ArticleEntity getArticle() {
+        return article;
+    }
+
+    public Double getStitchingPrice() {
+        return stitchingPrice;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setTailor(TailorEntity tailor) {
+        this.tailor = tailor;
+    }
+
+    public void setArticle(ArticleEntity article) {
+        this.article = article;
+    }
+
+    public void setStitchingPrice(Double stitchingPrice) {
+        this.stitchingPrice = stitchingPrice;
+    }
 }
