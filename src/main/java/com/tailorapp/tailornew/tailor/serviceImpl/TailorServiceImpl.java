@@ -3,6 +3,7 @@ package com.tailorapp.tailornew.tailor.serviceImpl;
 import com.tailorapp.common.exception.ResourceAlreadyExistsException;
 import com.tailorapp.tailornew.expertise.entity.ExpertiseEntity;
 import com.tailorapp.tailornew.expertise.entity.TailorExpertiseEntity;
+import com.tailorapp.tailornew.projection.TailorArticleRateProjection;
 import com.tailorapp.tailornew.tailor.dto.TailorResponseDto;
 import com.tailorapp.tailornew.tailor.entity.TailorEntity;
 import com.tailorapp.tailornew.tailor.repository.TailorRepository;
@@ -90,7 +91,24 @@ public class TailorServiceImpl implements TailorService {
                 tailorRepository.findAllByDeletedFalseAndActiveTrueOrderByTailorIdDesc();
 
         return tailors.stream()
-                .map(tailor -> modelMapper.map(tailor, TailorResponseDto.class))
+                .map(tailor -> {
+
+                    TailorResponseDto dto = modelMapper.map(tailor, TailorResponseDto.class);
+
+                    dto.setExpertiseList(
+                            tailor.getTailorExpertises()
+                                    .stream()
+                                    .map(te -> te.getExpertise().getExpertiseName())
+                                    .toList()
+                    );
+
+                    return dto;
+                })
                 .toList();
+    }
+
+    @Override
+    public List<TailorArticleRateProjection> getArticleStitchingPriceByTailorId(Long tailorId) {
+        return tailorRepository.findByTailorId(tailorId);
     }
 }

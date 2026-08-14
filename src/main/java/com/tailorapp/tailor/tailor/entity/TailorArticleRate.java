@@ -2,6 +2,7 @@ package com.tailorapp.tailor.tailor.entity;
 
 import com.tailorapp.catalog.article.entity.ArticleEntity;
 import com.tailorapp.common.constants.DatabaseConstants;
+import com.tailorapp.tailornew.tailor.entity.TailorEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,28 +38,28 @@ public class TailorArticleRate {
         return id;
     }
 
-    public TailorEntity getTailor() {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public TailorEntityOld getTailor() {
         return tailor;
+    }
+
+    public void setTailor(TailorEntityOld tailor) {
+        this.tailor = tailor;
     }
 
     public ArticleEntity getArticle() {
         return article;
     }
 
-    public Double getStitchingPrice() {
-        return stitchingPrice;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setTailor(TailorEntity tailor) {
-        this.tailor = tailor;
-    }
-
     public void setArticle(ArticleEntity article) {
         this.article = article;
+    }
+
+    public Double getStitchingPrice() {
+        return stitchingPrice;
     }
 
     public void setStitchingPrice(Double stitchingPrice) {

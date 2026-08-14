@@ -33,4 +33,6 @@ public class TailorResponseDto {
     private TailorAddressResponseDto address;
     private List<TailorExpertiseResponseDto> tailorExpertises = new ArrayList<>();
     private List<TailorReviewResponseDto> reviews = new ArrayList<>();
+
+    private List<String> expertiseList= new ArrayList<>();
 }

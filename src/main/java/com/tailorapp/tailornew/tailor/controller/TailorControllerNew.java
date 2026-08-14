@@ -1,6 +1,7 @@
 package com.tailorapp.tailornew.tailor.controller;
 
 import com.tailorapp.common.response.ApiResponse;
+import com.tailorapp.tailornew.projection.TailorArticleRateProjection;
 import com.tailorapp.tailornew.tailor.dto.TailorResponseDto;
 import com.tailorapp.tailornew.tailor.service.TailorService;
 import jakarta.validation.Valid;
@@ -43,6 +44,30 @@ public class TailorControllerNew {
                 ApiResponse.success(
                         "Tailors fetched successfully.",
                         response
+                )
+        );
+    }
+    @GetMapping("/article-stitchingPrice/{tailorId}")
+    public ResponseEntity<ApiResponse<List<TailorArticleRateProjection>>> getArticleStitchingPriceByTailorId(
+            @PathVariable Long tailorId) {
+
+        if (tailorId == null || tailorId <= 0) {
+            return ResponseEntity.badRequest().body(
+                    ApiResponse.error(
+                            "Tailor Id is required.",
+                            "BAD_REQUEST"
+                    )
+            );
+        }
+
+        List<TailorArticleRateProjection> response =
+                tailorService.getArticleStitchingPriceByTailorId(tailorId);
+
+        return ResponseEntity.ok(
+                ApiResponse.success(
+                        "Article stitching price fetched successfully.",
+                        response,
+                        response.size()
                 )
         );
     }
