@@ -20,8 +20,7 @@ import lombok.Setter;
                 )
         }
 )
-@Setter
-@Getter
+
 public class TailorExpertiseEntity extends BaseEntity {
 
     @Id
@@ -46,5 +45,30 @@ public class TailorExpertiseEntity extends BaseEntity {
     private ExpertiseEntity expertise;
 
     protected TailorExpertiseEntity() {
+    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public TailorEntity getTailor() {
+        return tailor;
+    }
+
+    public void setTailor(TailorEntity tailor) {
+        this.tailor = tailor;
+    }
+
+    public ExpertiseEntity getExpertise() {
+        return expertise;
+    }
+
+    public void setExpertise(ExpertiseEntity expertise) {
+        this.expertise = expertise;
     }
 }

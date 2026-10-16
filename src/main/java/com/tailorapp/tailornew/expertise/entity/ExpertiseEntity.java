@@ -19,8 +19,7 @@ import java.util.List;
                 @UniqueConstraint(name = "uk_expertise_name", columnNames = "expertise_name")
         }
 )
-@Setter
-@Getter
+
 public class ExpertiseEntity extends BaseEntity {
 
     @Id
@@ -38,5 +37,37 @@ public class ExpertiseEntity extends BaseEntity {
     private List<TailorExpertiseEntity> tailorExpertises = new ArrayList<>();
 
     public ExpertiseEntity() {
+    }
+
+    public Long getExpertiseId() {
+        return expertiseId;
+    }
+
+    public void setExpertiseId(Long expertiseId) {
+        this.expertiseId = expertiseId;
+    }
+
+    public String getExpertiseName() {
+        return expertiseName;
+    }
+
+    public void setExpertiseName(String expertiseName) {
+        this.expertiseName = expertiseName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<TailorExpertiseEntity> getTailorExpertises() {
+        return tailorExpertises;
+    }
+
+    public void setTailorExpertises(List<TailorExpertiseEntity> tailorExpertises) {
+        this.tailorExpertises = tailorExpertises;
     }
 }

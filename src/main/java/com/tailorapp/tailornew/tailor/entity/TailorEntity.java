@@ -27,8 +27,7 @@ import java.util.List;
                 @UniqueConstraint(name = "uk_tailor_email", columnNames = "email")
         }
 )
-@Setter
-@Getter
+
 public class TailorEntity extends BaseEntity {
 
     @Id
@@ -86,5 +85,101 @@ public class TailorEntity extends BaseEntity {
     private List<TailorReviewEntity> reviews = new ArrayList<>();
 
     protected TailorEntity() {
+    }
+
+    public Long getTailorId() {
+        return tailorId;
+    }
+
+    public void setTailorId(Long tailorId) {
+        this.tailorId = tailorId;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Integer getExperienceYears() {
+        return experienceYears;
+    }
+
+    public void setExperienceYears(Integer experienceYears) {
+        this.experienceYears = experienceYears;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
+    }
+
+    public Grade getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Grade grade) {
+        this.grade = grade;
+    }
+
+    public BigDecimal getAverageRating() {
+        return averageRating;
+    }
+
+    public void setAverageRating(BigDecimal averageRating) {
+        this.averageRating = averageRating;
+    }
+
+    public Integer getReviewCount() {
+        return reviewCount;
+    }
+
+    public void setReviewCount(Integer reviewCount) {
+        this.reviewCount = reviewCount;
+    }
+
+    public TailorAddressEntity getAddress() {
+        return address;
+    }
+
+    public void setAddress(TailorAddressEntity address) {
+        this.address = address;
+    }
+
+    public List<TailorExpertiseEntity> getTailorExpertises() {
+        return tailorExpertises;
+    }
+
+    public void setTailorExpertises(List<TailorExpertiseEntity> tailorExpertises) {
+        this.tailorExpertises = tailorExpertises;
+    }
+
+    public List<TailorReviewEntity> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<TailorReviewEntity> reviews) {
+        this.reviews = reviews;
     }
 }
